@@ -31,7 +31,6 @@ const Product = (props) => {
       },
     }).then((response) => {
       if (response.status === 200) {
-        console.log("hello");
         naviagte("/cart");
       }
     });
