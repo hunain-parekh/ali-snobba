@@ -1,0 +1,15 @@
+.btn-primary{
+    width: 248px;
+    height: 73px;
+    color: #1D3435;
+    border-radius: 20px;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+    background: linear-gradient(#DF9F51,#DAAD76);
+}
+
+.btn-primary:hover{
+    color: #DF9F51;
+    background: #1D3435;
+}

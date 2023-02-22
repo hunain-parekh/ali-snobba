@@ -1,0 +1,25 @@
+.navbar{
+    background: #1D3435;
+    color: #DAAD76;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 20px;
+}
+
+.logo-div{
+    width: 100px;
+}
+
+.logo-div img{
+    width: 100%;
+}
+
+.cart-icon-div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cart-icon{
+    font-size: 100px;
+}
