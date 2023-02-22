@@ -23,4 +23,6 @@
 
 .cart-icon{
     font-size: 100px;
+    color: #DAAD76 !important;
+    cursor: pointer;
 }
