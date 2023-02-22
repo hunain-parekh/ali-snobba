@@ -7,9 +7,27 @@
     font-weight: bold;
     cursor: pointer;
     background: linear-gradient(#DF9F51,#DAAD76);
+    margin: 10px;
 }
 
 .btn-primary:hover{
     color: #DF9F51;
     background: #1D3435;
+}
+
+.btn-secondary{
+    width: 248px;
+    height: 73px;
+    color: #DF9F51;
+    border-radius: 20px;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+    background: linear-gradient(#2C351D,#1D3435);
+    margin: 10px;
+}
+
+.btn-secondary:hover{
+    color: #1D3435;
+    background: #DF9F51;
 }

@@ -9,7 +9,7 @@ const ProductList = () => {
   },[]);
 
   const data = list.length !==0 ? list.map((item)=>{
-    return <Product item={item}/>
+    return <Product item={item} key={item.name}/>
   }):null;
   return (
     <>
