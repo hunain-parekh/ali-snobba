@@ -36,12 +36,12 @@ const Cart = () => {
       {data != null ? data : <h1>No Products In Cart</h1>}
       <hr className="line" />
       <div className="cart-bottom">
-        <h3>Total Price : Rs. {total.toLocaleString()}</h3>
+        <h3>Order Total : Rs. {total.toLocaleString()}</h3>
         <div className="buttons">
           <Link to="/">
             <Button className="btn-secondary">RETURN TO SHOPPING</Button>
           </Link>
-          {cartList.length !== 0 ? <Button className="btn-primary">CHECKOUT</Button> : null}
+          {cartList.length !== 0 ? <Link to="/thanks"><Button className="btn-primary">CHECKOUT</Button></Link> : null}
         </div>
       </div>
     </div>

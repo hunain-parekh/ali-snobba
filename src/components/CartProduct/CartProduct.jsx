@@ -8,16 +8,17 @@ const CartProduct = (props) => {
       .then((response) => response.json())
       .then((result) => setProduct(result));
   }, [props.item.productId]);
-  const deleteProduct=()=>{
-    fetch("http://localhost:8081/api/cart/" + props.item.id,{
+  
+  const deleteProduct = () => {
+    fetch("http://localhost:8081/api/cart/" + props.item.id, {
       method: "DELETE",
       headers: {
         "Content-type": "application/json; charset=UTF-8",
       },
-    }).then(()=>{
+    }).then(() => {
       props.deleteItem(props.item);
-    })
-  }
+    });
+  };
   return (
     <div className="product-cart-item">
       <div className="product-cart-image">
@@ -26,7 +27,9 @@ const CartProduct = (props) => {
       <div className="product-cart-other">
         <div className="heading">
           <h1>{product.name}</h1>
-          <h6 className="x" onClick={deleteProduct}>X</h6>
+          <h6 className="x" onClick={deleteProduct}>
+            X
+          </h6>
         </div>
         <h4>
           Price : Rs. {product.price ? product.price.toLocaleString() : null}

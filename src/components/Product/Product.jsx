@@ -5,7 +5,7 @@ import "./product.css";
 
 const Product = (props) => {
   const [quantity, setQuantity] = useState(1);
-  const naviagte = useNavigate();
+  const navigate = useNavigate();
 
   const decreaseQunatity = () => {
     if (quantity > 1) {
@@ -31,7 +31,7 @@ const Product = (props) => {
       },
     }).then((response) => {
       if (response.status === 200) {
-        naviagte("/cart");
+        navigate("/cart");
       }
     });
   };

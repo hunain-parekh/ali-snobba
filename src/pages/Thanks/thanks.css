@@ -1,0 +1,46 @@
+.thanks-main{
+    position: fixed;
+    min-height: 100vh;
+    width: 100%;
+    background-color: #1D3435;;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 11111;
+    flex-direction: column;
+}
+
+.thanks-main div{
+    color: #DF9F51;
+    padding: 100px;
+    align-items: center;
+}
+
+.thanks-main div .thanks{
+    font-size: 60px;
+}
+
+.thanks-main div h1{
+    text-align: center;
+}
+
+.App-logo {
+    height: 40vmin;
+    pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    .App-logo {
+        animation: App-logo-spin infinite 20s linear;
+    }
+}
+
+@keyframes App-logo-spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
