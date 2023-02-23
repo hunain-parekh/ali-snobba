@@ -19,9 +19,7 @@ describe('Thanks Component', () => {
   });
 
   it('should render the component correctly', () => {
-
     const { getByText, getByAltText } = render(<Thanks />);
-
     expect(getByText('THANKS')).toBeInTheDocument();
     expect(getByText('For Your Order')).toBeInTheDocument();
     expect(getByAltText('logo')).toBeInTheDocument();

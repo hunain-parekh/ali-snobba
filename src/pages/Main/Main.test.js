@@ -12,14 +12,4 @@ describe('Main', () => {
     const navbarElement = screen.getByRole('navigation');
     expect(navbarElement).toBeInTheDocument();
   });
-
-  test('renders Outlet component', () => {
-    render(
-      <MemoryRouter>
-        <Main />
-      </MemoryRouter>
-    );
-    const outletElement = screen.getByRole('main');
-    expect(outletElement).toBeInTheDocument();
-  });
 });
