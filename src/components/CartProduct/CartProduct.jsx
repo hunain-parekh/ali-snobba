@@ -1,12 +1,15 @@
 import { useEffect, useState } from "react";
+import { act } from "react-dom/test-utils";
 import "./cartProduct.css";
 
 const CartProduct = (props) => {
   const [product, setProduct] = useState({});
   useEffect(() => {
-    fetch("http://localhost:8080/api/product/" + props.item.productId)
+    act(()=>{
+      fetch("http://localhost:8080/api/product/" + props.item.productId)
       .then((response) => response.json())
       .then((result) => setProduct(result));
+    });
   }, [props.item.productId]);
   
   const deleteProduct = () => {

@@ -47,4 +47,17 @@ describe('CartProduct component', () => {
     expect(mockDeleteItem).toHaveBeenCalledTimes(1);
     expect(mockDeleteItem).toHaveBeenCalledWith(testItem);
   });
+
+  test('fetches correct product details', async () => {
+    render(<CartProduct item={testItem} deleteItem={mockDeleteItem} />);
+    await screen.findByText('Test Product');
+    expect(fetch).toHaveBeenCalledWith('http://localhost:8080/api/product/123');
+  });
+
+  test('handles errors gracefully', async () => {
+    global.fetch = jest.fn(() => Promise.reject('API is down'));
+    render(<CartProduct item={testItem} deleteItem={mockDeleteItem} />);
+    await screen.findByText('Product not found');
+    expect(screen.getByText('Product not found')).toBeInTheDocument();
+  });
 });
