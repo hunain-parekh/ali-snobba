@@ -27,11 +27,4 @@ describe('Thanks Component', () => {
     expect(getByAltText('logo')).toBeInTheDocument();
 
   });
-
-  // it('should navigate to the home page when clicking on start over button', async () => {
-  //   const { getByText } = render(<Thanks />);
-  //   fireEvent.click(getByText("START OVER"));
-
-  //   await expect(navigateMock).toHaveBeenCalledWith("/");
-  // });
 });

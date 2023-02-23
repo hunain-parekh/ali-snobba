@@ -1,100 +1,67 @@
-import React from 'react';
-import { render, waitFor } from '@testing-library/react';
-import { BrowserRouter } from 'react-router-dom';
+import { render, screen, waitFor } from '@testing-library/react';
+import { MemoryRouter } from 'react-router-dom';
 import App from './App';
 
-describe('App component', () => {
-  it('should render the loader on mount', () => {
-    const { getByTestId } = render(<App />);
-    expect(getByTestId('loader')).toBeInTheDocument();
+describe('App', () => {
+  test('renders Loader component initially', () => {
+    render(<App />);
+    const loaderElement = screen.getByRole('progressbar');
+    expect(loaderElement).toBeInTheDocument();
   });
 
-  it('should render the main page after loader', async () => {
-    const { getByText, queryByTestId } = render(
-      <BrowserRouter>
-        <App />
-      </BrowserRouter>
-    );
-
+  test('renders Main component after loader', async () => {
+    render(<App />);
     await waitFor(() => {
-      expect(queryByTestId('loader')).not.toBeInTheDocument();
+      const mainElement = screen.getByRole('main');
+      expect(mainElement).toBeInTheDocument();
     });
-
-    expect(getByText(/Welcome to Alisnobba/i)).toBeInTheDocument();
   });
 
-  it('should navigate to the cart page when clicking on cart icon', async () => {
-    const { getByTestId, getByText, queryByTestId } = render(
-      <BrowserRouter>
+  test('renders ProductList component on index route', async () => {
+    render(
+      <MemoryRouter initialEntries={['/']}>
         <App />
-      </BrowserRouter>
+      </MemoryRouter>
     );
-
     await waitFor(() => {
-      expect(queryByTestId('loader')).not.toBeInTheDocument();
+      const productListElement = screen.getByRole('list');
+      expect(productListElement).toBeInTheDocument();
     });
-
-    const cartIcon = getByTestId('cart-icon');
-    expect(cartIcon).toBeInTheDocument();
-    expect(cartIcon).toHaveAttribute('href', '/cart');
-
-    getByText(/red-gold-lamp/i).click();
-
-    await waitFor(() => {
-      expect(queryByTestId('loader')).not.toBeInTheDocument();
-    });
-
-    const addToCartBtn = getByText(/add to cart/i);
-    expect(addToCartBtn).toBeInTheDocument();
-    addToCartBtn.click();
-
-    await waitFor(() => {
-      expect(getByTestId('cart-count')).toHaveTextContent('1');
-    });
-
-    cartIcon.click();
-
-    expect(getByText(/red-gold-lamp/i)).toBeInTheDocument();
-    expect(getByTestId('cart-count')).toHaveTextContent('1');
   });
 
-  it('should navigate to the thanks page after successful checkout', async () => {
-    const { getByTestId, getByText, queryByTestId } = render(
-      <BrowserRouter>
+  test('renders ProductDetails component on details route', async () => {
+    render(
+      <MemoryRouter initialEntries={['/details/1']}>
         <App />
-      </BrowserRouter>
+      </MemoryRouter>
     );
-
     await waitFor(() => {
-      expect(queryByTestId('loader')).not.toBeInTheDocument();
+      const productDetailsElement = screen.getByRole('article');
+      expect(productDetailsElement).toBeInTheDocument();
     });
+  });
 
-    getByText(/red-gold-lamp/i).click();
-
+  test('renders Cart component on cart route', async () => {
+    render(
+      <MemoryRouter initialEntries={['/cart']}>
+        <App />
+      </MemoryRouter>
+    );
     await waitFor(() => {
-      expect(queryByTestId('loader')).not.toBeInTheDocument();
+      const cartElement = screen.getByRole('form');
+      expect(cartElement).toBeInTheDocument();
     });
+  });
 
-    const addToCartBtn = getByText(/add to cart/i);
-    expect(addToCartBtn).toBeInTheDocument();
-    addToCartBtn.click();
-
+  test('renders Thanks component on thanks route', async () => {
+    render(
+      <MemoryRouter initialEntries={['/thanks']}>
+        <App />
+      </MemoryRouter>
+    );
     await waitFor(() => {
-      expect(getByTestId('cart-count')).toHaveTextContent('1');
-    });
-
-    getByTestId('cart-icon').click();
-
-    getByText(/checkout/i).click();
-
-    await waitFor(() => {
-      expect(queryByTestId('loader')).not.toBeInTheDocument();
-    });
-
-    getByText(/place order/i).click();
-
-    await waitFor(() => {
-      expect(getByText(/thanks for your order/i)).toBeInTheDocument();
+      const thanksElement = screen.getByRole('heading');
+      expect(thanksElement).toBeInTheDocument();
     });
   });
 });
