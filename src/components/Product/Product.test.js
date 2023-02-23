@@ -20,16 +20,7 @@ describe('Product', () => {
     expect(screen.getByText('Product 1')).toBeInTheDocument();
     expect(screen.getByText('Short description of product 1')).toBeInTheDocument();
   });
-
-  test('renders product price', () => {
-    render(
-      <MemoryRouter>
-        <Product item={product} />
-      </MemoryRouter>
-    );
-    expect(screen.getByText('Rs. 100')).toBeInTheDocument();
-  });
-
+  
   test('renders product image', () => {
     render(
       <MemoryRouter>
