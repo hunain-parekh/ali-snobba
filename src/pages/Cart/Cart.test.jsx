@@ -1,6 +1,7 @@
 import { render, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import Cart from "./Cart";
+import { BrowserRouter } from "react-router-dom";
 
 describe("Cart component", () => {
   const mockCartList = [
@@ -33,8 +34,23 @@ describe("Cart component", () => {
     jest.resetAllMocks();
   });
 
+test('renders cart container', async () => {
+  render(
+    <BrowserRouter>
+      <Cart />
+    </BrowserRouter>
+  );
+  const cartContainer = screen.getByTestId('cart-container');
+  await expect(cartContainer).toBeInTheDocument();
+});
+
+
   it("renders a list of cart products when cartList is not empty", async () => {
-    render(<Cart />);
+    
+    render(
+    <BrowserRouter>
+      <Cart />
+    </BrowserRouter>);
 
     await waitFor(() => expect(fetch).toHaveBeenCalledTimes(1));
 

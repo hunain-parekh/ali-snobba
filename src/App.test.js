@@ -48,10 +48,11 @@ describe('App', () => {
       </MemoryRouter>
     );
     await waitFor(() => {
-      const cartElement = screen.getByRole('form');
+      const cartElement = screen.getByTestId('cart-container');
       expect(cartElement).toBeInTheDocument();
     });
   });
+  
 
   test('renders Thanks component on thanks route', async () => {
     render(
