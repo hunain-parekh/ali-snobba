@@ -91,4 +91,18 @@ describe('Product', () => {
       },
     });
   });
+
+  test('does not decrease quantity below 1', () => {
+    render(
+      <MemoryRouter>
+        <Product item={product} />
+      </MemoryRouter>
+    );
+    const minusButton = screen.getByText('-');
+    const quantityText = screen.getByText('1');
+    fireEvent.click(minusButton);
+    expect(quantityText.textContent).toBe('1');
+  });
+
+  
 });
