@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/ali-snobba/static/css/main.9854f678.css",
+    "main.js": "/ali-snobba/static/js/main.aa84f04d.js",
+    "static/js/787.c7800ce4.chunk.js": "/ali-snobba/static/js/787.c7800ce4.chunk.js",
+    "static/media/logo.png": "/ali-snobba/static/media/logo.e6fcf64ab9b4df4c6a79.png",
+    "index.html": "/ali-snobba/index.html",
+    "main.9854f678.css.map": "/ali-snobba/static/css/main.9854f678.css.map",
+    "main.aa84f04d.js.map": "/ali-snobba/static/js/main.aa84f04d.js.map",
+    "787.c7800ce4.chunk.js.map": "/ali-snobba/static/js/787.c7800ce4.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.9854f678.css",
+    "static/js/main.aa84f04d.js"
+  ]
+}
